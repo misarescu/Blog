@@ -1,0 +1,29 @@
+---
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body
+    class="bg-slate-200 text-slate-950 dark:text-slate-50 dark:bg-slate-800"
+  >
+    <header
+      class="flex lg:space-x-2 space-x-1 bg-slate-100 dark:bg-slate-700 lg:text-2xl text-xl font-bold lg:p-4 p-2"
+    >
+      <nav>
+        <a href="/">xMischu</a>
+        <a href="/blog">Blog</a>
+        <a href="/projects-lab">Projects</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
