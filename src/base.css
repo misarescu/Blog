@@ -1,0 +1,49 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* small screen */
+:root {
+  --underline-start-width: 4px;
+  --underline-end-width: 2px;
+  --underline-timing: 0.3s;
+}
+
+/* large screen */
+@media (min-width: 1024px) {
+  :root {
+    --underline-start-width: 6px;
+    --underline-end-width: 3px;
+  }
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --underline-color: linear-gradient(transparent, transparent),
+      linear-gradient(theme("colors.blue.700"), theme("colors.blue.700"));
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --underline-color: linear-gradient(transparent, transparent),
+      linear-gradient(theme("colors.blue.300"), theme("colors.blue.300"));
+  }
+}
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: var(--underline-color);
+  background-size: 0 var(--underline-start-width);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--underline-timing) ease-in-out;
+}
+
+.link-underline:hover {
+  background-size: 100% var(--underline-end-width);
+  background-position: 0 100%;
+}
