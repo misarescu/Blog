@@ -1,10 +1,62 @@
 ---
+import PostCard from "@components/PostCard.astro";
 import GlobalLayout from "@layouts/GlobalLayout.astro";
+import GridLayout from "@layouts/GridLayout.astro";
+import { trimByWordCount } from "@utils/string";
+
+const titles = [
+  "A Lot on One’s Plate",
+  "Lickety Split",
+  "A Dime a Dozen",
+  "Under the Weather",
+  "Ride Him, Cowboy!",
+  "Wouldn't Harm a Fly",
+  "Mountain Out of a Molehill",
+  "Money Doesn't Grow On Trees",
+  "A Guinea Pig",
+  "A Little Bird Told Me",
+];
+
+const content = [
+  "The thing that's great about this job is the time sourcing the items involves no traveling. I just look online to buy it. It's really as simple as that. While everyone else is searching for what they can sell, I sit in front of my computer and buy better stuff for less money and spend a fraction of the time doing it.s",
+  "I recollect that my first exploit in squirrel-shooting was in a grove of tall walnut-trees that shades one side of the valley. I had wandered into it at noontime, when all nature is peculiarly quiet, and was startled by the roar of my own gun, as it broke the Sabbath stillness around and was prolonged and reverberated by the angry echoes.",
+  "It wasn't supposed to end that way. The plan had been meticulously thought out and practiced again and again. There was only one possible result once it had been implemented, but as they stood there the result wasn't anything close to what it should have been. They all blankly looked at each wondering how this could have happened. In their minds, they all began to blame the other members of the group as to why they had failed.",
+  "Lori lived her life through the lens of a camera. She never realized this until this very moment as she scrolled through thousands of images on your computer. She could remember the exact moment each photo was taken. She could remember where she had been, what she was thinking as she tried to get the shot, the smells of the surrounding area, and even the emotions that she felt taking the photo, yet she had trouble remembering what she had for breakfast.",
+  "There were a variety of ways to win the game. James had played it long enough to know most of them and he could see what his opponent was trying to do. There was a simple counterattack that James could use and the game should be his. He began deploying it with the confidence of a veteran player who had been in this situation a thousand times in the past. So, it was with great surprise when his opponent used a move he had never before seen or anticipated to easily defeat him in the game.",
+  "I checked in for the night at Out O The Way motel. What a bad choice that was. First I took a shower and a spider crawled out of the drain. Next, the towel rack fell down when I reached for the one small bath towel. This allowed the towel to fall halfway into the toilet. I tried to watch a movie, but the remote control was sticky and wouldn’t stop scrolling through the channels. I gave up for the night and crawled into bed. I stretched out my leg and felt something furry by my foot. Filled with fear, I reached down and to my surprise, I pulled out a raccoon skin pair of underwear. After my initial relief that it wasn’t alive, the image of a fat, ugly businessman wearing raccoon skin briefs filled my brain. I jumped out of the bed, threw my toothbrush into my bag, and sprinted towards my car.",
+  "April seriously wondered about her sleeping partner choices. She looked at her bed and what a mess it had become. How did she get to the point in her life where she had two dogs, three cats, and a raccoon sleeping with her every night?",
+  "Sleep deprivation causes all sorts of challenges and problems. When one doesn’t get enough sleep one’s mind doesn’t work clearly. Studies have shown that after staying awake for 24 hours one’s ability to do simple math is greatly impaired. Driving tired has been shown to be as bad as driving drunk. Moods change, depression, anxiety, and mania can be induced by lack of sleep. As much as people try to do without enough sleep it is a wonder more crazy things don’t happen in this world.",
+  "He hid under the covers hoping that nobody would notice him there. It really didn't make much sense since it would be obvious to anyone who walked into the room there was someone hiding there, but he still held out hope. He heard footsteps coming down the hall and stop in front in front of the bedroom door. He heard the squeak of the door hinges and someone opened the bedroom door. He held his breath waiting for whoever was about to discover him, but they never did.",
+  "I haven't bailed on writing. Look, I'm generating a random paragraph at this very moment in an attempt to get my writing back on track. I am making an effort. I will start writing consistently again!",
+  "Pink ponies and purple giraffes roamed the field. Cotton candy grew from the ground as a chocolate river meandered off to the side. What looked like stones in the pasture were actually rock candy. Everything in her dream seemed to be perfect except for the fact that she had no mouth.",
+];
+
+const previews = trimByWordCount(content, 100);
+
+const posts = titles.map((title, idx) => {
+  return {
+    title: title,
+    preview: previews[idx],
+  };
+});
+
+console.log(posts);
 ---
 
 <GlobalLayout>
-  <section>
-    <h1>Blog here :D</h1>
-    <h2>some more text</h2>
+  <section id="title" class="text-center">
+    <h1>Blog posts</h1>
   </section>
+  <br />
+  <GridLayout>
+    {
+      posts.map((data) => (
+        <PostCard
+          imgSrc="@content/image.png"
+          title={data.title}
+          preview={data.preview.substring(0, 250)}
+        />
+      ))
+    }
+  </GridLayout>
 </GlobalLayout>
