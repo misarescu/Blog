@@ -2,7 +2,7 @@
 import PostCard from "@components/PostCard.astro";
 import GlobalLayout from "@layouts/GlobalLayout.astro";
 import GridLayout from "@layouts/GridLayout.astro";
-import { array, string } from "astro/zod";
+import { trimByWordCount } from "@utils/string";
 
 const titles = [
   "A Lot on One’s Plate",
@@ -31,16 +31,7 @@ const content = [
   "Pink ponies and purple giraffes roamed the field. Cotton candy grew from the ground as a chocolate river meandered off to the side. What looked like stones in the pasture were actually rock candy. Everything in her dream seemed to be perfect except for the fact that she had no mouth.",
 ];
 
-const previews = content.map((c) => {
-  let words = c.split(" ");
-  if (words.length > 100) {
-    words = words.slice(0, 100);
-  }
-
-  let result = words.join(" ");
-
-  return result;
-});
+const previews = trimByWordCount(content, 100);
 
 const posts = titles.map((title, idx) => {
   return {
