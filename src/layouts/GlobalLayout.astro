@@ -1,6 +1,9 @@
 ---
 import "../base.css";
 import Prose from "@components/Prose.astro";
+import githubSVG from "@public/github-mark.svg";
+import githubDarkSVG from "@public/github-mark-white.svg";
+import { Image } from "astro:assets";
 ---
 
 <html lang="en">
@@ -23,7 +26,23 @@ import Prose from "@components/Prose.astro";
         <a href="/projects-lab" class="link-underline">Projects</a>
         <a href="/talking-topics" class="link-underline">Topics</a>
       </nav>
-      <a href="https://github.com/misarescu" class="font-bold">Github</a>
+      <a href="https://github.com/misarescu" class="font-bold">
+        <div class="md:block hidden">Github</div>
+        <Image
+          id="github-image"
+          src={githubDarkSVG}
+          alt="Github"
+          width="30"
+          class="md:hidden hidden dark:md:hidden dark:block"
+        />
+        <Image
+          id="github-image"
+          src={githubSVG}
+          alt="Github"
+          width="30"
+          class="md:hidden block dark:md:hidden dark:hidden"
+        />
+      </a>
     </header>
     <main
       class="flex flex-col items-center lg:w-3/4 md:w-4/5 w-full min-h-screen m-auto bg-slate-200 dark:bg-slate-700 lg:p-12 md:p-8 p-4"
