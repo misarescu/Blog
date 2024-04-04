@@ -23,7 +23,23 @@ import Prose from "@components/Prose.astro";
         <a href="/projects-lab" class="link-underline">Projects</a>
         <a href="/talking-topics" class="link-underline">Topics</a>
       </nav>
-      <a href="https://github.com/misarescu" class="font-bold">Github</a>
+      <a href="https://github.com/misarescu" class="font-bold">
+        <div class="md:block hidden">Github</div>
+        <img
+          id="github-image"
+          src="github-mark-white.svg"
+          alt="Github"
+          width="30"
+          class="md:hidden hidden dark:md:hidden dark:block"
+        />
+        <img
+          id="github-image"
+          src="github-makr.svg"
+          alt="Github"
+          width="30"
+          class="md:hidden block dark:md:hidden dark:hidden"
+        />
+      </a>
     </header>
     <main
       class="flex flex-col items-center lg:w-3/4 md:w-4/5 w-full min-h-screen m-auto bg-slate-200 dark:bg-slate-700 lg:p-12 md:p-8 p-4"
