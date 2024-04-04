@@ -1,9 +1,6 @@
 ---
 import "../base.css";
 import Prose from "@components/Prose.astro";
-import githubSVG from "@public/github-mark.svg";
-import githubDarkSVG from "@public/github-mark-white.svg";
-import { Image } from "astro:assets";
 ---
 
 <html lang="en">
@@ -28,16 +25,16 @@ import { Image } from "astro:assets";
       </nav>
       <a href="https://github.com/misarescu" class="font-bold">
         <div class="md:block hidden">Github</div>
-        <Image
+        <img
           id="github-image"
-          src={githubDarkSVG}
+          src="github-mark-white.svg"
           alt="Github"
           width="30"
           class="md:hidden hidden dark:md:hidden dark:block"
         />
-        <Image
+        <img
           id="github-image"
-          src={githubSVG}
+          src="github-makr.svg"
           alt="Github"
           width="30"
           class="md:hidden block dark:md:hidden dark:hidden"
