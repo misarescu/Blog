@@ -4,7 +4,7 @@ description: "This is a test post to check how a post looks like"
 author: "xMischu"
 image:
   {
-    url: "https://static01.nyt.com/images/2022/04/04/multimedia/15ai-nocode/15ai-nocode-videoSixteenByNineJumbo1600.jpg",
+    url: "/images/first-post/CodePicture.jpeg",
     alt: "the image was eaten by the internet void",
   }
 tags: ["general"]
@@ -35,5 +35,3 @@ const postsCollection = defineCollection({
   }),
 });
 ```
-
-### Blog layout

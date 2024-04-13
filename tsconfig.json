@@ -6,7 +6,8 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@utils/*": ["src/utils/*"],
-      "@public/*": ["public/*"]
+      "@public/*": ["public/*"],
+      "@content/*": ["src/content/*"]
     },
     "allowJs": true,
     "strictNullChecks": true
