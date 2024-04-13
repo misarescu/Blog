@@ -84,12 +84,11 @@
     --astro-code-token-string-expression: #a6e3a1;
     --astro-code-token-punctuation: #9399b2;
     --astro-code-token-link: #eba0ac;
-
-    .astro-code,
-    .astro-code span {
-      color: var(--shiki-dark) !important;
-      background-color: var(--shiki-dark-bg) !important;
-    }
+  }
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
   }
   h1::first-letter,
   h2::first-letter,
