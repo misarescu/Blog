@@ -22,7 +22,8 @@
 /* Light mode */
 @media (prefers-color-scheme: light) {
   :root {
-    --highlight-color: theme("colors.blue.700");
+    --highlight-color: theme("colors.sky.700");
+    --highlight-bg-color: theme("colors.sky.100");
     --underline-color: linear-gradient(transparent, transparent),
       linear-gradient(var(--highlight-color), var(--highlight-color));
   }
@@ -43,7 +44,8 @@
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --highlight-color: theme("colors.blue.700");
+    --highlight-color: theme("colors.sky.300");
+    --highlight-bg-color: theme("colors.sky.900");
     --underline-color: linear-gradient(transparent, transparent),
       linear-gradient(var(--highlight-color), var(--highlight-color));
   }
@@ -73,4 +75,29 @@
 .link-underline:hover {
   background-size: 100% var(--underline-end-width);
   background-position: 0 100%;
+}
+
+.content-highlight {
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-evenly; */
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.card-highlight {
+  pointer-events: auto;
+  transform: scale(1);
+  transition: all 0.4s;
+}
+
+.card-highlight:hover {
+  opacity: 1;
+  transform: scale(1.075);
+  background-color: var(--highlight-bg-color);
+}
+
+.content-highlight:hover .card-highlight:not(:hover) {
+  opacity: 0.75;
+  transform: scale(0.95);
 }
