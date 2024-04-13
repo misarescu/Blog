@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import GlobalLayout from "./GlobalLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<GlobalLayout>
+  <h1 class="text-center">{frontmatter.title}</h1>
+  <h2 class="text-center">{frontmatter.description}</h2>
+  <h4 class="text-end">Written by: {frontmatter.author}</h4>
+  <h5 class="text-end">{frontmatter.pubDate.toString().slice(0, 15)}</h5>
+  <Image
+    src={frontmatter.image.url}
+    alt={frontmatter.image.alt}
+    width="100"
+    height="100"
+    style="aspect-ratio: 2.5; object-fit:cover;"
+    class="mx-auto 2xl:w-2/3 lg:w-4/5 w-full h-auto md:shadow-xl shadow"
+  />
+  <br />
+  <slot />
+</GlobalLayout>

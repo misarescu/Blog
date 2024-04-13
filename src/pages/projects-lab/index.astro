@@ -3,6 +3,7 @@ import PostCard from "@components/PostCard.astro";
 import GlobalLayout from "@layouts/GlobalLayout.astro";
 import GridLayout from "@layouts/GridLayout.astro";
 import { trimByWordCount } from "@utils/string";
+import codeImg from "@public/images/first-post/CodePicture.jpeg";
 
 const titles = [
   "A Lot on One’s Plate",
@@ -52,7 +53,9 @@ const posts = titles.map((title, idx) => {
     {
       posts.map((data) => (
         <PostCard
-          imgSrc="@content/image.png"
+          postLink="/blog/first-post"
+          imgSrc={codeImg}
+          imgAlt="picture placeholder"
           title={data.title}
           preview={data.preview.substring(0, 250)}
         />
