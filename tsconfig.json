@@ -7,6 +7,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@utils/*": ["src/utils/*"],
       "@public/*": ["public/*"]
-    }
+    },
+    "allowJs": true,
+    "strictNullChecks": true
   }
 }

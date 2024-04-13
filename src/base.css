@@ -9,6 +9,7 @@
   --underline-end-width: 2px;
   --underline-timing: 0.3s;
   --first-letter-size: 125%;
+  --gradient-angle: -45deg;
 }
 
 /* large screen */
@@ -24,6 +25,7 @@
   :root {
     --highlight-color: theme("colors.sky.700");
     --highlight-bg-color: theme("colors.sky.100");
+    --text-color: theme("colors.slate.950");
     --underline-color: linear-gradient(transparent, transparent),
       linear-gradient(var(--highlight-color), var(--highlight-color));
   }
@@ -33,7 +35,15 @@
   h4::first-letter,
   h5::first-letter,
   h6::first-letter {
-    color: var(--highlight-color);
+    background: -webkit-linear-gradient(
+      var(--gradient-angle),
+      var(--highlight-color),
+      var(--text-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* color: var(--highlight-color); */
+    /* color: linear-gradient(var(--highlight-color), var(--text-color)); */
     font-size: var(--first-letter-size);
   }
   .custom-link::first-letter {
@@ -41,11 +51,14 @@
   }
 }
 
+/* bg-slate-300 text-slate-950 dark:text-slate-50 dark:bg-slate-800 */
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --highlight-color: theme("colors.sky.300");
     --highlight-bg-color: theme("colors.sky.900");
+    --text-color: theme("colors.slate.50");
     --underline-color: linear-gradient(transparent, transparent),
       linear-gradient(var(--highlight-color), var(--highlight-color));
   }
@@ -55,7 +68,15 @@
   h4::first-letter,
   h5::first-letter,
   h6::first-letter {
-    color: var(--highlight-color);
+    background: -webkit-linear-gradient(
+      var(--gradient-angle),
+      var(--highlight-color),
+      var(--text-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* color: var(--highlight-color); */
+    /* color: linear-gradient(var(--highlight-color), var(--text-color)); */
     font-size: var(--first-letter-size);
   }
   .custom-link::first-letter {
