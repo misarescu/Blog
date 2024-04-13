@@ -1,6 +1,9 @@
 ---
 import "../base.css";
 import Prose from "@components/Prose.astro";
+import GithubLight from "@public/github-mark.svg";
+import GithubDark from "@public/github-mark-white.svg";
+import { Image } from "astro:assets";
 ---
 
 <html lang="en">
@@ -26,17 +29,22 @@ import Prose from "@components/Prose.astro";
         <a href="/talking-topics" class="link-underline">Topics</a>
         <a href="https://github.com/misarescu" class="font-bold custom-link">
           <div class="md:block hidden">Github</div>
-          <img
+          <Image
             id="github-image"
-            src="github-mark-white.svg"
+            src={GithubDark}
+            format="svg"
             alt="Github"
+            loading="lazy"
             width="25"
             class="md:hidden hidden dark:md:hidden dark:block"
           />
-          <img
+
+          <Image
             id="github-image"
-            src="github-mark.svg"
+            src={GithubLight}
+            format="svg"
             alt="Github"
+            loading="lazy"
             width="25"
             class="md:hidden block dark:md:hidden dark:hidden"
           />
