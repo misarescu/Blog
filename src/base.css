@@ -28,6 +28,18 @@
     --text-color: theme("colors.slate.950");
     --underline-color: linear-gradient(transparent, transparent),
       linear-gradient(var(--highlight-color), var(--highlight-color));
+
+    --astro-code-color-text: #4c4f69;
+    --astro-code-color-background: #eff1f5;
+    --astro-code-token-constant: #4c4f69;
+    --astro-code-token-string: #40a02b;
+    --astro-code-token-comment: #9ca0b0;
+    --astro-code-token-keyword: #8839ef;
+    --astro-code-token-parameter: #e64553;
+    --astro-code-token-function: #1e66f5;
+    --astro-code-token-string-expression: #40a02b;
+    --astro-code-token-punctuation: #7c7f93;
+    --astro-code-token-link: #7c7f93;
   }
   h1::first-letter,
   h2::first-letter,
@@ -61,6 +73,23 @@
     --text-color: theme("colors.slate.50");
     --underline-color: linear-gradient(transparent, transparent),
       linear-gradient(var(--highlight-color), var(--highlight-color));
+    --astro-code-color-text: #cdd6f4;
+    --astro-code-color-background: #1e1e2e;
+    --astro-code-token-constant: #cdd6f4;
+    --astro-code-token-string: #a6e3a1;
+    --astro-code-token-comment: #6c7086;
+    --astro-code-token-keyword: #cba6f7;
+    --astro-code-token-parameter: #eba0ac;
+    --astro-code-token-function: #89b4fa;
+    --astro-code-token-string-expression: #a6e3a1;
+    --astro-code-token-punctuation: #9399b2;
+    --astro-code-token-link: #eba0ac;
+
+    .astro-code,
+    .astro-code span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+    }
   }
   h1::first-letter,
   h2::first-letter,
