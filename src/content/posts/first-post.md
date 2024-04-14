@@ -4,7 +4,7 @@ description: "This is a test post to check how a post looks like"
 author: "xMischu"
 image:
   {
-    url: "/images/first-post/CodePicture.jpeg",
+    url: "/posts/images/first-post/CodePicture.jpeg",
     alt: "the image was eaten by the internet void",
   }
 tags: ["general", "tech", "astro", "javascript", "typescript"]
