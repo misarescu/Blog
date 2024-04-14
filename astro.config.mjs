@@ -13,8 +13,8 @@ export default defineConfig({
       wrap: true,
       // theme: "css-variables",
       experimentalThemes: {
-        light: "material-theme-lighter",
-        dark: "material-theme-palenight",
+        light: "light-plus",
+        dark: "dark-plus",
       },
     },
   },
