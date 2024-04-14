@@ -21,6 +21,7 @@ const posts = await getCollection("posts");
           imgAlt={post.data.image.alt}
           title={post.data.title}
           preview={post.data.description.substring(0, 250)}
+          tags={post.data.tags}
         />
       ))
     }
