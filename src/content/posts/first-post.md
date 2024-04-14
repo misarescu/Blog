@@ -71,7 +71,27 @@ Here are some links if you're interested in the supported integrations Astro has
 
 ### Project structure
 
-![Project structure](/images/first-post/ProjectStructure.png)
+<!-- ![Project structure](/images/first-post/ProjectStructure.png) -->
+
+```md
+.
+├── public
+│  
+├── src
+│   ├── components
+│   ├── content
+│   ├── layouts
+│   ├── pages
+│   ├── utils
+│   ├── base.css
+│   └── env.d.ts
+├── README.md
+├── astro.config.mjs
+├── package.json
+├── pnpm-lock.yaml
+├── tailwind.config.mjs
+└── tsconfig.json
+```
 
 Astro follows a pretty standard structure. From this we see there is support for file based routing indicated by the pages directory and also layouts. This makes it easy to jump into it as it has similar concepts to [NextJS](https://nextjs.org), which is very influential. In my case I added a content directory where the markdown of the blog posts lives.
 
