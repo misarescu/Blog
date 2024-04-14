@@ -150,3 +150,10 @@
   opacity: 0.75;
   transform: scale(0.95);
 }
+.prose p {
+  text-indent: 3rem;
+}
+
+.not-prose p {
+  text-indent: 0;
+}
