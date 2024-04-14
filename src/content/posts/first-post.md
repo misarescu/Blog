@@ -1,6 +1,6 @@
 ---
-title: "My First Blog Post"
-description: "This is a test post to check how a post looks like"
+title: "The first post: how this blog was born"
+description: "In this post I'll discuss the technical journey I went through when developing this website. I discuss about the tech stack, why I chose it and what issues I had to deal with because of this"
 author: "xMischu"
 image:
   {
@@ -14,15 +14,15 @@ pubDate: 2024-04-13
 ## Goal of the blog
 
 This website/blog is meant to be a public journal where I'll put my thoughts into written form in case it needs to be referenced and shared later.
-This is also useful to build a personal brand and have past work be easily presentable in a quick fashion. Having something cool to write for the blog could be also a good motivator to keep thinkering with new projects/concepts.
+This is also useful to build a personal brand and have past work be easily presentable. Having something cool to write for the blog could be also a good motivator to keep thinkering with new projects/concepts.
 
 Ok now that we got the boring intro stuff out of the way we can get right into the meat and potatoes of how this blog is put together.
 
 ## Overal Architecture
 
-For this adventure I decided to play it risky and build this on a technology I had no idea how it works, which is [Astro](https://astro.build). I just had an overall idea that it is this new cool kid on the block when it comes to Javascript frameworks. I knew it has collections that can generate pages from markdown, which is handy for a project like this where most of the time the content is just thext that needs to be rendered in a nice format, but you don't want to write html tags all over the place or implement a custom data format. So markdown it is.
+For this adventure I decided to play it risky and build this on a technology I had no idea how it works, which is [Astro](https://astro.build). I just had an overall idea that it is this new cool kid on the block when it comes to Javascript frameworks. I knew it has collections that can generate pages from [Markdown](https://en.wikipedia.org/wiki/Markdown), which is handy for a project like this where most of the time the content is just thext that needs to be rendered in a nice format, but you don't want to write html tags all over the place or implement a custom data format. So Markdown it is.
 
-As far as architecting goes this bad boy is hosted on [Vercel](https://vercel.com), the content you see is stored in the code repo(i know, this is not ideal, but for a first draft with a few posts it'll do just fine) and that's kinda it. I guess for this post I'll talk about what I found interesting about Astro, how it integrates with [Tailwind](http://tailwindcss.com) and [Markdown](https://en.wikipedia.org/wiki/Markdown), how collections work and maybe discuss about the documentation of all of this.
+As far as architecting goes this bad boy is hosted on [Vercel](https://vercel.com), the content you see is stored in the code repo(i know, this is not ideal, but for a first draft with a few posts it'll do just fine) and that's kinda it. I guess for this post I'll talk about what I found interesting about Astro, how it integrates with [Tailwind](http://tailwindcss.com) and Markdown, how collections work and maybe discuss about the documentation of all of this.
 
 ### Astro and Javascript
 
@@ -93,7 +93,7 @@ Here are some links if you're interested in the supported integrations Astro has
 └── tsconfig.json
 ```
 
-Astro follows a pretty standard structure. From this we see there is support for file based routing indicated by the pages directory and also layouts. This makes it easy to jump into it as it has similar concepts to [NextJS](https://nextjs.org), which is very influential. In my case I added a content directory where the markdown of the blog posts lives.
+Astro follows a pretty standard structure. From this we see there is support for file based routing indicated by the pages directory and also layouts. This makes it easy to jump into it as it has similar concepts to [NextJS](https://nextjs.org), which is very influential. In my case I added a content directory where the Markdown of the blog posts lives.
 
 ### Content storage
 
@@ -130,7 +130,7 @@ Astro comes with frontmatter out of the box. One could say they were inspired he
 
 #### Second step: Slugs
 
-Because of the file based routing, we have support for path slugs. This allows to have dynamic routes based on the name of the markdown file in src/content/posts. Those with keen eyes probably spotted the route of this page is /blog/first-post, which matches the name of first-post.md previously mentioned. I'll let you read heare more about [File based routing](https://docs.astro.build/en/guides/routing/) and how it works in Astro.
+Because of the file based routing, we have support for path slugs. This allows to have dynamic routes based on the name of the Markdown file in src/content/posts. Those with keen eyes probably spotted the route of this page is /blog/first-post, which matches the name of first-post.md previously mentioned. I'll let you read heare more about [File based routing](https://docs.astro.build/en/guides/routing/) and how it works in Astro.
 
 #### Third step: Giving users some links
 
@@ -171,7 +171,7 @@ const posts = await getCollection("posts");
 
 Here we have a boring and an interesting part. The boring one is setting up some layout to show the title, description, author date from the frontmatter. This is trivial as they are props to our page and we don't have much issues.
 
-The interesting part comes in generating the html from the markdown and showing it correctly! Why is that? Because if you look closely to the project structure image, I use tailwind for my css. Tailwind is a a blessign most of the time, but here it gave me some troubles! The reas is that by default it strips the page from all styling! And I mean **ALL** styling, all h1-h6 and p tags look the same. There is this interesgin read [here](https://tailwindcss.com/docs/preflight#) about this subject. Usually this is not that big of a deal because I do something like this
+The interesting part comes in generating the html from the Markdown and showing it correctly! Why is that? Because if you look closely to the project structure image, I use tailwind for my css. Tailwind is a a blessign most of the time, but here it gave me some troubles! The reas is that by default it strips the page from all styling! And I mean **ALL** styling, all h1-h6 and p tags look the same. There is this interesgin read [here](https://tailwindcss.com/docs/preflight#) about this subject. Usually this is not that big of a deal because I do something like this
 
 ```html
 <h1 class="text-2xl">Heading1</h1>
@@ -186,7 +186,7 @@ Here the problem arrives by having the html generated, so I cannot do this! I ha
 2. Use a tailwind plugin to style the html in a cohesive way really fast
 
 Naturally I went with solution 2 and installed the [Typography](https://tailwindcss.com/docs/plugins#typography) plugin, some prose classes later and now I have a working blog post with good styling!
-All good until I did a code example. The themeing was not there, there was a static theme for bogh light and dark mode which did not fit either. This was not Tailwind's fault, it was from Astro. Turns out it comes with a code formatter named [Shiki.](https://shiki.style)This is very cool and it has nice themes, light and dark variants and supports dual themeing, exactly what my use case needs. The problem here is the slight mismatch of the documentations, in the Shiki docs we have this example
+All good until I did a code example. The themeing was not there, there was a static theme for both light and dark mode which did not fit either. This was not Tailwind's fault, it was from Astro. Turns out it comes with a code formatter named [Shiki.](https://shiki.style) This is very cool and it has nice themes, light and dark variants and supports dual themeing, exactly what my use case needs. The problem here is the slight mismatch of the documentations, in the Shiki docs we have this example
 
 ```javascript
 import { codeToHtml } from "shiki";
@@ -204,7 +204,7 @@ however, in order to make it work in the astro config without installing other p
 
 ```javascript
 export default defineConfig({
-  markdown: {
+  Markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {
       wrap: true,
@@ -221,7 +221,7 @@ After 1 hour of trying to figure out why the themes don't switch, finally the pa
 
 ## Closing thoughts
 
-After all that journey from just hearing about a new framework to deploying a functional website with it I learned that even if the puzzle pieces fit together nicely, sometimes one or two are missing and you have to get creative when solving it. I hope you found this information useful and learned something new. If you didn't, well then I hope you had fun reading about my struggles with CSS 😅
+After all that journey from just hearing about a new framework to deploying a functional website with it I hope you found this information useful and learned something new. If you didn't, well then I hope you had fun reading about my struggles with CSS 😅
 
 ---
 
