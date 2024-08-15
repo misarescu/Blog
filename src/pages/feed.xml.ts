@@ -10,7 +10,7 @@ export const GET: APIRoute = async function ({ site }) {
   return rss({
     title: "xMishu's blog",
     description: "A simple dev writing his own thoughts and processes online",
-    site: site.toString(),
+    site: site ? site?.toString() : "",
     trailingSlash: false,
     items: posts.map((post) => ({
       title: post.data.title,
