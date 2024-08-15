@@ -3,7 +3,7 @@ import { z, defineCollection } from "astro:content";
 const postsCollection = defineCollection({
   type: "content",
 
-  // for rss the schema already contains the title, pub date and description with correct typess
+  // for rss the schema already contains the title, pub date, content and description with correct typess
   schema: z.object({
     title: z.string(),
     pubDate: z.date(),

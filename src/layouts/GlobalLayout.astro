@@ -10,10 +10,15 @@ import { Image } from "astro:assets";
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>xMischu's website</title>
-  </head>
+  </head><lint
+    rel="alternate"
+    type="application/rss+xml"
+    title="xMischu's website"
+    href={new URL("rss.xml", Astro.site)}></lint>
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>xMischu's website</title>
+
   <body
     class="bg-slate-300 text-slate-950 dark:text-slate-50 dark:bg-slate-800"
   >
